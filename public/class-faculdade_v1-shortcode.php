@@ -134,23 +134,24 @@ class Faculdade_v1_Shortcode
         ));
     } // register_shortcodes()
 
-    
-
-
     /**
-* Processes shortcode inscrito_formulario
-*
-* @param array $atts The attributes from the shortcode
-*
-*
-* @return mixed $output Output of the buffer
-*/
+     * Processes shortcode inscrito_formulario
+     *
+     * @param array $atts The attributes from the shortcode
+     *
+     *
+     * @return mixed $output Output of the buffer
+     */
 
-public function visualizar_form_inscrito( $atts ) {
-	
-
-} // 
-
-
-
+    public function visualizar_form_inscrito($atts)
+    {
+        $a = shortcode_atts(
+            array(
+                'inscrito_cat' => 'eventos'
+            ),
+            $atts
+        );
+        //return 'Hello ' . $a['inscrito_cat'];
+        include 'partials/faculdade_v1-shortcode-display.php';
+    }
 }

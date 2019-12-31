@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Provide a public-facing view for the plugin
  *
@@ -15,15 +14,5 @@
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 
-<h4><?php // echo($args['quotes-title']) ?></h4>
-<?php
-    $options = get_option('faculdade_v1');
-    if($options['quo-title']){
-    echo('<h4>' . $args['quotes-title'] . '</h4>');
-    }
-?>
-<ul>
-<?php foreach ( $items as $item ) { ?>
-  <li><b><?php echo ($item->post_title) ?></b> <?php echo($item->post_content) ?> </li>
-<?php } ?>
-</ul>
+<h4> formulario de inscrição aqui</h4>
+

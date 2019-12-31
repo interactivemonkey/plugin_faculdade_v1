@@ -72,7 +72,7 @@ class Faculdade_v1_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-                    // folha estilo meta box insrida por flavio
+                    // folha estilo meta box inserida por flavio
                        global $typenow;
 
 
@@ -269,6 +269,7 @@ class Faculdade_v1_Admin {
 	*
 	* @since 1.0.0
 	*/
+
 
 	public function display_plugin_setup_page() {
 		include_once( 'partials/faculdade_v1-admin-display.php' );
