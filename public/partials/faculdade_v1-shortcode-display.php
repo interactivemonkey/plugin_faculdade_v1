@@ -16,8 +16,54 @@ get_header();
 
      if(isset($_POST['submit'])){
 
-        campo_inscricao_front();
-        die();
+
+          $title = $_POST['nome-aluno'];
+           $nome_aluno = $_POST['nome-aluno'];
+            $email_aluno = $_POST['email-alun'];
+            $cpf_aluno = $_POST['cpf-alun'];
+            $rg_aluno = $_POST['rg-alun'];
+            $end_aluno = $_POST['ender-aluno'];
+            $end_numero = $_POST['end-numero'];
+           $end_bairro = $_POST['end-bairro'];
+           $end_cidade = $_POST['end-cidade'];
+           $indicou = $_POST['indicou'];
+           $cep = $_POST['cep'];
+            $tel_fixo = $_POST['tel_fixo'];
+             $celular = $_POST['celular'];
+             $instituicao_estuda = $_POST['instituicao_estuda'];
+             $uf = $_POST['uf'];
+
+          $arg = array (
+
+              'post_type' => 'inscricao',
+              'post_title' => $title,
+             // 'post_content' => $description,
+              'post_status' => 'publish',
+              'comment_status' => 'closed',   // if you prefer
+              'ping_status'   => 'closed',      // if you prefer
+
+          );
+
+          $nova_inscricao_id = wp_insert_post( $arg );
+
+          if($nova_inscricao_id!=0)
+              {
+                  add_post_meta($nova_inscricao_id, 'nome-aluno', $nome_aluno);
+                  add_post_meta($nova_inscricao_id, 'email-alun', $email_aluno);
+                  add_post_meta($nova_inscricao_id, 'cpf-alun', $cpf_aluno);
+                  add_post_meta($nova_inscricao_id, 'rg-alun', $rg_aluno);
+                  add_post_meta($nova_inscricao_id, 'ender-aluno', $end_aluno);
+                  add_post_meta($nova_inscricao_id, 'end-numero', $end_numero);
+                  add_post_meta($nova_inscricao_id, 'end-bairro', $end_bairro);
+                  add_post_meta($nova_inscricao_id, 'end-cidade', $end_cidade);
+                  add_post_meta($nova_inscricao_id, 'indicacao', $indicou);
+                  add_post_meta($nova_inscricao_id, 'end-cep', $cep);
+                   add_post_meta($nova_inscricao_id, 'tel-fixo', $tel_fixo);
+                   add_post_meta($nova_inscricao_id, 'tel-fixo', $celular);
+                   add_post_meta($nova_inscricao_id, 'institu-estudou',  $instituicao_estuda );
+                   add_post_meta($nova_inscricao_id, 'end-estado',  $uf);
+
+              }
 
      }
 
