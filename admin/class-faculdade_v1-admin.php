@@ -189,6 +189,67 @@ class Faculdade_v1_Admin {
 	} // new_cpt_job()
 
 
+
+
+// Register Custom Post Type
+function cursosevento() {
+
+  $labels = array(
+    'name'                  => _x( 'Ensinos', 'Post Type General Name', 'faculdade_v1' ),
+    'singular_name'         => _x( 'Ensino', 'Post Type Singular Name', 'faculdade_v1' ),
+    'menu_name'             => __( 'Ensino', 'faculdade_v1' ),
+    'name_admin_bar'        => __( 'Ensino', 'faculdade_v1' ),
+    'archives'              => __( 'Item Archives', 'faculdade_v1' ),
+    'attributes'            => __( 'Item Attributes', 'faculdade_v1' ),
+    'parent_item_colon'     => __( 'Parent Item:', 'faculdade_v1' ),
+    'all_items'             => __( 'All Items', 'faculdade_v1' ),
+    'add_new_item'          => __( 'Add New Item', 'faculdade_v1' ),
+    'add_new'               => __( 'Adicionar Curso/Evento', 'faculdade_v1' ),
+    'new_item'              => __( 'Novo Curso/Evento', 'faculdade_v1' ),
+    'edit_item'             => __( 'Editar', 'faculdade_v1' ),
+    'update_item'           => __( 'Atualizar', 'faculdade_v1' ),
+    'view_item'             => __( 'View Item', 'faculdade_v1' ),
+    'view_items'            => __( 'View Items', 'faculdade_v1' ),
+    'search_items'          => __( 'Search Item', 'faculdade_v1' ),
+    'not_found'             => __( 'Not found', 'faculdade_v1' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'faculdade_v1' ),
+    'featured_image'        => __( 'Featured Image', 'faculdade_v1' ),
+    'set_featured_image'    => __( 'Set featured image', 'faculdade_v1' ),
+    'remove_featured_image' => __( 'Remove featured image', 'faculdade_v1' ),
+    'use_featured_image'    => __( 'Use as featured image', 'faculdade_v1' ),
+    'insert_into_item'      => __( 'Insert into item', 'faculdade_v1' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this item', 'faculdade_v1' ),
+    'items_list'            => __( 'Items list', 'faculdade_v1' ),
+    'items_list_navigation' => __( 'Items list navigation', 'faculdade_v1' ),
+    'filter_items_list'     => __( 'Filter items list', 'faculdade_v1' ),
+  );
+  $args = array(
+    'label'                 => __( 'Ensino', 'faculdade_v1' ),
+    'description'           => __( 'Post Type Description', 'faculdade_v1' ),
+    'labels'                => $labels,
+    'supports'              => array( 'title', 'editor', 'thumbnail' ),
+    'taxonomies'            => array( 'curso_type' ),
+    'hierarchical'          => false,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    'menu_position'         => 5,
+    'show_in_admin_bar'     => true,
+    'show_in_nav_menus'     => true,
+    'can_export'            => true,
+    'has_archive'           => true,
+    'exclude_from_search'   => false,
+    'publicly_queryable'    => true,
+    'capability_type'       => 'page',
+  );
+  register_post_type( 'ensino', $args );
+
+}
+add_action( 'init', 'cursosevento', 0 );
+
+
+
+
 	/**
 	 * Creates a new taxonomy for a custom post type
 	 *
