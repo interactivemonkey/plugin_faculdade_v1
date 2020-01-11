@@ -196,12 +196,12 @@ function create_ensino_cpt() {
   $labels = array(
     'name' => _x( 'Ensinos', 'Post Type General Name', 'faculdade_v1' ),
     'singular_name' => _x( 'Ensino', 'Post Type Singular Name', 'faculdade_v1' ),
-    'menu_name' => _x( 'Ensinos', 'Admin Menu text', 'faculdade_v1' ),
+    'menu_name' => _x( 'Ensino', 'Admin Menu text', 'faculdade_v1' ),
     'name_admin_bar' => _x( 'Ensino', 'Add New on Toolbar', 'faculdade_v1' ),
     'archives' => __( 'Ensino Archives', 'faculdade_v1' ),
     'attributes' => __( 'Ensino Attributes', 'faculdade_v1' ),
     'parent_item_colon' => __( 'Parent Ensino:', 'faculdade_v1' ),
-    'all_items' => __( 'All Eninos', 'faculdade_v1' ),
+    'all_items' => __( 'Todos ensinos', 'faculdade_v1' ),
     'add_new_item' => __( 'Add New Ensino', 'faculdade_v1' ),
     'add_new' => __( 'Add New', 'faculdade_v1' ),
     'new_item' => __( 'New Ensino', 'faculdade_v1' ),
@@ -239,7 +239,7 @@ function create_ensino_cpt() {
     'has_archive' => true,
     'hierarchical' => true,
     'exclude_from_search' => false,
-    'show_in_rest' => true,
+    //'show_in_rest' => true,
     'publicly_queryable' => true,
     'capability_type' => 'post',
   );

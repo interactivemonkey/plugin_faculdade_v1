@@ -81,6 +81,7 @@ class Faculdade_v1 {
 		$this->define_shortcode_hooks();
 
 		$this->define_metabox_hooks();
+		$this->define_meta_dinamic_hooks();
 
 	}
 
@@ -123,6 +124,11 @@ class Faculdade_v1 {
 		 * The class responsible for defining all actions relating to metaboxes.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-faculdade_v1-admin-metaboxes.php';
+
+			/**
+		 * The class responsible for defining all actions relating to metaboxes.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-faculdade_v1-admin-meta-dinamic.php';
 
 
 		/**
@@ -172,6 +178,7 @@ class Faculdade_v1 {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
                $this->loader->add_action( 'init', $plugin_admin, 'cpt_inscricoes_faculdade_v1' );
+               $this->loader->add_action( 'init', $plugin_admin, 'create_ensino_cpt' );
                $this->loader->add_action( 'init', $plugin_admin, 'inscri_taxonomy_type' );
               //   $this->loader->add_action( 'admin_init', $plugin_admin, 'register_fields' );
 
@@ -203,7 +210,7 @@ class Faculdade_v1 {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-			   
+
 
 	}
 
@@ -221,7 +228,7 @@ class Faculdade_v1 {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
-			   
+
 		$this->loader->add_action( 'init', $plugin_public, 'register_shortcodes' );
 
 	}
@@ -243,6 +250,22 @@ class Faculdade_v1 {
 		$this->loader->add_action( 'save_post_inscricao', $plugin_metaboxes, 'validate_meta', 10, 2 );
 
 	} // define_metabox_hooks()
+
+
+	 /**
+	 * Register all of the hooks related to metaboxes
+	 *
+	 * @since 		1.0.0
+	 * @access 		private
+	 */
+	private function define_meta_dinamic_hooks() {
+		$plugin_meta_dinamic = new Faculdade_Admin_Meta_Dinamic( $this->get_plugin_name(), $this->get_version() );
+
+     $this->loader->add_action( 'admin_init', $plugin_meta_dinamic, 'my_custom_codes_init_func' );
+    // $this->loader->add_action( 'add_meta_box', $plugin_meta_dinamic, 'my_custom_metabox_func');
+
+	} // define_meta_dinamic_hooks()
+
 
 
 
