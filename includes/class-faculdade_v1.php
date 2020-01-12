@@ -264,6 +264,8 @@ class Faculdade_v1 {
      $this->loader->add_action( 'admin_init', $plugin_meta_dinamic, 'my_custom_codes_init_func' );
     // $this->loader->add_action( 'add_meta_box', $plugin_meta_dinamic, 'my_custom_metabox_func');
 
+     $this->loader->add_action( 'save_post', $plugin_meta_dinamic, 'save_my_post_meta' );
+
 	} // define_meta_dinamic_hooks()
 
 

@@ -79,7 +79,9 @@ class Faculdade_v1_Admin {
 			   if( $typenow == 'inscricao' ) {
 			        wp_enqueue_style( 'bootstrap-cpt', plugin_dir_url( __FILE__ ) . 'css/bootstrap/css/bootstrap.css', array(), $this->version, 'all' );
 			        wp_enqueue_style( 'custom-style', plugin_dir_url( __FILE__ ) . 'css/custom.css', array(), $this->version, 'all' );
-			    }else {
+			    }elseif ($typenow == 'ensino' ) {
+                   wp_enqueue_style( 'bootstrap-cpt', plugin_dir_url( __FILE__ ) . 'css/bootstrap/css/bootstrap.css', array(), $this->version, 'all' );
+          }else {
 			    	  wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/faculdade_v1-admin.css', array(), $this->version, 'all' );
 			    }
 
@@ -110,10 +112,15 @@ class Faculdade_v1_Admin {
 
 			   if( $typenow == 'inscricao' ) {
 			        wp_enqueue_script( 'bootstra-js', plugin_dir_url( __FILE__ ) . 'css/bootstrap/js/bootstrap.min.js', array(), $this->version, false );
+        }elseif ($typenow == 'ensino' ){
+
+                wp_enqueue_script( 'metadynamic-js', plugin_dir_url( __FILE__ ) . 'js/dynamic-fields.js', array('jquery'), $this->version, true );
+
+
 			    }else {
 
 		                  wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/faculdade_v1-admin.js', array( 'jquery' ), $this->version, false );
-                           }
+          }
 	}
 
 

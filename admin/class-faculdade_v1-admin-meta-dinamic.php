@@ -47,6 +47,7 @@ class Faculdade_Admin_Meta_Dinamic {
 
 	}
 
+
 // My custom codes will be here
 //add_action( 'admin_init', 'code_func_meta_dinamic' );
 
@@ -58,16 +59,46 @@ class Faculdade_Admin_Meta_Dinamic {
     //$id, $title, $callback, $page, $context, $priority, $callback_args
     add_meta_box(
     	 'my_custom_info',
-    	 'Custom Info',
+    	 'Mini Curso',
     	 array( $this, 'metabox_dinamic' ),
-    	 'post',
+    	 'ensino',
     	 'normal',
     	 'default'
     	);
 }
 
 		public function metabox_dinamic() {
+
+        global $post;
+
+          $mytext =   get_post_meta($post->ID, 'mytext', true);
+
+
 			  include 'partials/faculdade_v1-admin-metabox-dinamico.php';
 		  }
+
+
+    public function save_my_post_meta($post_id) {
+    // Bail if we're doing an auto save
+    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+
+    // if our current user can't edit this post, bail
+    if( !current_user_can( 'edit_post' ) ) return;
+
+    // now we can actually save the data
+    $allowed = array(
+        'a' => array( // on allow a tags
+            'href' => array() // and those anchors can only have href attribute
+        )
+    );
+    // If any value present in input field, then update the post meta
+    if(isset($_POST['mytext'])) {
+        // $post_id, $meta_key, $meta_value
+        update_post_meta( $post_id, 'mytext', $_POST['mytext'] );
+    }
+}
+
+
+
 
 }
