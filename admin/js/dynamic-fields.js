@@ -40,7 +40,7 @@ $(add_button).click(function(e){ //on add input button click
     e.preventDefault();
     if(x < max_fields){ //max input box allowed
         x++; //text box increment
-        $(wrapper).append('<div><input type="text"  style="width: 60%; font-weight: 400; font-size: 1rem; line-height: 1.5; padding: 0.375rem 0.75rem; margin-top: 10px;" name="mytext[]"/><a href="#" style=" margin-top: 6px; margin-left:8px" class="remove_field btn btn-danger">Remove</a></div>'); //add input box
+        $(wrapper).append('<div><input type="text"  style="width: 60%; font-weight: 400; font-size: 1rem; line-height: 1.5; padding: 0.375rem 0.75rem; margin-top: 10px;" name="mytext[][]"/><a href="#" style=" margin-top: 6px; margin-left:8px" class="remove_field btn btn-danger">Remove</a></div>'); //add input box
     }
 });
 

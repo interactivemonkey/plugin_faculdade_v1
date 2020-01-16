@@ -180,6 +180,8 @@ class Faculdade_v1 {
                $this->loader->add_action( 'init', $plugin_admin, 'cpt_inscricoes_faculdade_v1' );
                $this->loader->add_action( 'init', $plugin_admin, 'create_ensino_cpt' );
                $this->loader->add_action( 'init', $plugin_admin, 'inscri_taxonomy_type' );
+                $this->loader->add_action( 'init', $plugin_admin, 'cursinho_faculdade' );
+
               //   $this->loader->add_action( 'admin_init', $plugin_admin, 'register_fields' );
 
 
@@ -259,6 +261,8 @@ class Faculdade_v1 {
 	 * @access 		private
 	 */
 	private function define_meta_dinamic_hooks() {
+
+
 		$plugin_meta_dinamic = new Faculdade_Admin_Meta_Dinamic( $this->get_plugin_name(), $this->get_version() );
 
      $this->loader->add_action( 'admin_init', $plugin_meta_dinamic, 'my_custom_codes_init_func' );

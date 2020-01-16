@@ -72,6 +72,7 @@ class Faculdade_Admin_Meta_Dinamic {
         global $post;
 
           $mytext =   get_post_meta($post->ID, 'mytext', true);
+          // $mytext2 =   get_post_meta($post->ID, 'mytext2', true);
 
 
 			  include 'partials/faculdade_v1-admin-metabox-dinamico.php';
@@ -92,7 +93,7 @@ class Faculdade_Admin_Meta_Dinamic {
         )
     );
     // If any value present in input field, then update the post meta
-    if(isset($_POST['mytext'])) {
+    if(isset($_POST['mytext']) ) {
         // $post_id, $meta_key, $meta_value
         update_post_meta( $post_id, 'mytext', $_POST['mytext'] );
     }
